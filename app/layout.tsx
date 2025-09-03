@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister/ServiceWorkerRegister";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   description: "Modern & Minimalist JS Mastery Portofolio",
   manifest: "/manifest.json",
   other: {
-    'apple-mobile-web-app-capable': 'yes',
+    'mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'default',
     'apple-mobile-web-app-title': 'My Kisah'
   }
@@ -46,6 +47,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <ServiceWorkerRegister/>
           </ThemeProvider>
       </body>
     </html>
